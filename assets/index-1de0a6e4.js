@@ -1,1 +1,0 @@
-import{A as o}from"./index-5cef4ce8.js";function t(){return o.jsx("div",{children:"Blog"})}export{t as default};
