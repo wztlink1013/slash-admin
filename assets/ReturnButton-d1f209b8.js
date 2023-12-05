@@ -1,0 +1,1 @@
+import{u as t,j as s,a4 as r,b0 as a}from"./index-a27b517f.js";function o({onClick:e}){const{t:n}=t();return s.jsx(r,{block:!0,type:"link",onClick:e,children:s.jsxs("div",{className:"flex items-center justify-center hover:underline",children:[s.jsx(a,{}),s.jsx("span",{className:"text-sm",children:n("sys.login.backSignIn")})]})})}export{o as ReturnButton};
