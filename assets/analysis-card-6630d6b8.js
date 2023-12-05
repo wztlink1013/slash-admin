@@ -1,0 +1,1 @@
+import{j as s}from"./index-00bc0960.js";function r({cover:e,subtitle:l,title:t,style:a}){return s.jsxs("div",{className:"flex flex-col items-center rounded-2xl py-10",style:{...a},children:[s.jsx("img",{src:e,alt:""}),s.jsx("span",{className:"text-3xl font-bold",children:t}),s.jsx("span",{className:"text-sm",children:l})]})}export{r as default};
