@@ -1,0 +1,1 @@
+import{aS as n}from"./.pnpm-05c560be.js";function r(r){return n(r).format()}function t(r){return function(n,r=".00"){const t=n.includes(r);return t?n.replace(r,""):n}(r?n(r).format("0.0 b"):"",".0")}export{t as a,r as f};
