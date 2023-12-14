@@ -1,0 +1,1 @@
+import{r as o,j as s}from"./.pnpm-05c560be.js";import{t}from"./index-56568590.js";function r({src:r}){const{back:a}=t();return o.useLayoutEffect((()=>{window.open(r,"_black"),a()})),s.jsx("div",{})}export{r as default};
