@@ -1,1 +1,0 @@
-import{j as e}from"./index-00bc0960.js";import{T as r}from"./index-e59e4fdc.js";import"./CheckOutlined-ce1b14da.js";import"./styleChecker-cd6b40ad.js";function m(){return e.jsx(r.Title,{children:"Menu Level: 3b"})}export{m as default};

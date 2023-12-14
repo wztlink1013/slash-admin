@@ -1,0 +1,1 @@
+import{j as a,m as n}from"./index-300ab72b.js";import{v as r}from"./bounce-4e07a61e.js";function m({children:i,className:t}){return a.jsx(n.div,{initial:"initial",animate:"animate",exit:"exit",variants:r(),className:t,children:i})}export{m as M};
