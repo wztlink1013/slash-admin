@@ -1,1 +1,0 @@
-import{j as l}from"./.pnpm-05c560be.js";function s({src:s=""}){return l.jsx("div",{className:"h-full w-full",children:l.jsx("iframe",{src:s,title:"iframe-page",className:"h-full w-full"})})}export{s as default};

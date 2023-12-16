@@ -1,1 +1,0 @@
-import{d as s,j as n,J as e,aP as i}from"./.pnpm-05c560be.js";function c({onClick:c}){const{t:t}=s();return n.jsx(e,{block:!0,type:"link",onClick:c,children:n.jsxs("div",{className:"flex items-center justify-center hover:underline",children:[n.jsx(i,{}),n.jsx("span",{className:"text-sm",children:t("sys.login.backSignIn")})]})})}export{c as ReturnButton};
