@@ -1,0 +1,1 @@
+import{j as l}from"./index-1e85ba70.js";function e({src:e=""}){return l.jsx("div",{className:"h-full w-full",children:l.jsx("iframe",{src:e,title:"iframe-page",className:"h-full w-full"})})}export{e as default};
