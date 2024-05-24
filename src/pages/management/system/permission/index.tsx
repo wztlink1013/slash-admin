@@ -57,7 +57,7 @@ export default function PermissionPage() {
       title: 'Icon',
       dataIndex: 'icon',
       width: 60,
-      render: (icon) => {
+      render: (icon: string) => {
         if (isNil(icon)) return '';
         if (icon.startsWith('ic')) {
           return <SvgIcon icon={icon} size={18} className="ant-menu-item-icon" />;
@@ -87,7 +87,12 @@ export default function PermissionPage() {
       align: 'center',
       width: 100,
       render: (_, record) => (
-        <div className="flex w-full justify-center text-gray">
+        <div className="flex w-full justify-end text-gray">
+          {record?.type === PermissionType.CATALOGUE && (
+            <IconButton onClick={() => onCreate(record.id)}>
+              <Iconify icon="gridicons:add-outline" size={18} />
+            </IconButton>
+          )}
           <IconButton onClick={() => onEdit(record)}>
             <Iconify icon="solar:pen-bold-duotone" size={18} />
           </IconButton>
@@ -101,11 +106,13 @@ export default function PermissionPage() {
     },
   ];
 
-  const onCreate = () => {
+  const onCreate = (parentId?: string) => {
     setPermissionModalProps((prev) => ({
       ...prev,
       show: true,
       ...defaultPermissionValue,
+      title: 'New',
+      formValue: { ...defaultPermissionValue, parentId: parentId ?? '' },
     }));
   };
 
@@ -121,7 +128,7 @@ export default function PermissionPage() {
     <Card
       title="Permission List"
       extra={
-        <Button type="primary" onClick={onCreate}>
+        <Button type="primary" onClick={() => onCreate()}>
           New
         </Button>
       }

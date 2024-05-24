@@ -13,17 +13,30 @@ import { BasicStatus, PermissionType } from '#/enum';
 import { AppRouteObject } from '#/router';
 
 // 使用 import.meta.glob 获取所有路由组件
+const entryPath = '/src/pages';
 const pages = import.meta.glob('/src/pages/**/*.tsx');
+export const pagesSelect = Object.entries(pages).map(([path]) => {
+  const pagePath = path.replace(entryPath, '');
+  return {
+    label: pagePath,
+    value: pagePath,
+  };
+});
 
 // 构建绝对路径的函数
 function resolveComponent(path: string) {
-  return pages[`/src/pages${path}`];
+  return pages[`${entryPath}${path}`];
 }
 
 /**
  * return routes about permission
  */
 export function usePermissionRoutes() {
+  // 切换回静态路由
+  // return useMemo(() => {
+  //   return getRoutesFromModules();
+  // }, []);
+
   const permissions = useUserPermission();
 
   return useMemo(() => {
@@ -53,6 +66,7 @@ function transformPermissionToMenuRoutes(
       icon,
       order,
       hide,
+      hideTab,
       status,
       frameSrc,
       newFeature,
@@ -67,6 +81,7 @@ function transformPermissionToMenuRoutes(
         label,
         key: getCompleteRoute(permission, flattenedPermissions),
         hideMenu: !!hide,
+        hideTab,
         disabled: status === BasicStatus.DISABLE,
       },
     };
@@ -74,12 +89,14 @@ function transformPermissionToMenuRoutes(
     if (order) appRoute.order = order;
     if (icon) appRoute.meta!.icon = icon;
     if (frameSrc) appRoute.meta!.frameSrc = frameSrc;
-    if (newFeature)
+
+    if (newFeature) {
       appRoute.meta!.suffix = (
         <ProTag color="cyan" icon={<Iconify icon="solar:bell-bing-bold-duotone" size={14} />}>
           NEW
         </ProTag>
       );
+    }
 
     if (type === PermissionType.CATALOGUE) {
       appRoute.meta!.hideTab = true;
@@ -91,6 +108,7 @@ function transformPermissionToMenuRoutes(
         );
       }
       appRoute.children = transformPermissionToMenuRoutes(children, flattenedPermissions);
+
       if (!isEmpty(children)) {
         appRoute.children.unshift({
           index: true,
@@ -102,7 +120,11 @@ function transformPermissionToMenuRoutes(
       if (frameSrc) {
         appRoute.element = <Element src={frameSrc} />;
       } else {
-        appRoute.element = <Element />;
+        appRoute.element = (
+          <Suspense fallback={<CircleLoading />}>
+            <Element />
+          </Suspense>
+        );
       }
     }
 

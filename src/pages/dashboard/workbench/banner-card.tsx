@@ -2,6 +2,7 @@ import { Col, Row } from 'antd';
 import Color from 'color';
 
 import Character3 from '@/assets/images/characters/character_3.png';
+import { Iconify } from '@/components/icon';
 import { useUserInfo } from '@/store/userStore';
 import { useThemeToken } from '@/theme/hooks';
 
@@ -28,18 +29,31 @@ export default function BannerCard() {
           <h4>Welcome back 👋 </h4>
           <h4>{username}</h4>
         </div>
-        <p
+        <div
           style={{ color: themeToken.colorPrimaryTextActive }}
           className="mx-auto mb-6 mt-4 max-w-sm text-sm opacity-80 md:mx-0"
         >
-          If you are going to use a passage of Lorem Ipsum, you need to be sure there is not
-          anything.
-        </p>
+          Welcome to join the Discord channel to discuss everything about Slash Admin, or you can
+          visite my blog:
+          <div>
+            <a
+              href="https://blog.slashspaces.com"
+              target="_blank"
+              className="text-base font-bold"
+              style={{ color: themeToken.colorPrimaryTextActive }}
+              rel="noreferrer"
+            >
+              👉 https://blog.slashspaces.com
+            </a>
+          </div>
+        </div>
         <button
           className="font-mediumtext-black m-auto flex items-center justify-center rounded-md px-2 py-1 shadow-none md:m-0"
-          style={{ backgroundColor: themeToken.colorPrimary }}
+          style={{ backgroundColor: themeToken.colorPrimary, color: '#fff' }}
+          onClick={() => window.open('https://discord.gg/fXemAXVNDa')}
         >
-          Go Now
+          <Iconify icon="carbon:logo-discord" size={24} />
+          <span className="ml-2">Open Discord</span>
         </button>
       </Col>
 

@@ -2,12 +2,15 @@ import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
 import { Menu, MenuProps } from 'antd';
 import { ItemType } from 'antd/es/menu/hooks/useItems';
 import Color from 'color';
+import { m } from 'framer-motion';
 import { CSSProperties, useEffect, useState } from 'react';
 import { useLocation, useMatches, useNavigate } from 'react-router-dom';
 
+import MotionContainer from '@/components/animate/motion-container';
+import { varSlide } from '@/components/animate/variants';
 import Logo from '@/components/logo';
 import Scrollbar from '@/components/scrollbar';
-import { useRouteToMenuFn, usePermissionRoutes } from '@/router/hooks';
+import { useRouteToMenuFn, usePermissionRoutes, useFlattenedRoutes } from '@/router/hooks';
 import { menuFilter } from '@/router/utils';
 import { useSettingActions, useSettings } from '@/store/settingStore';
 import { useThemeToken } from '@/theme/hooks';
@@ -15,6 +18,8 @@ import { useThemeToken } from '@/theme/hooks';
 import { NAV_COLLAPSED_WIDTH, NAV_WIDTH } from './config';
 
 import { ThemeLayout } from '#/enum';
+
+const slideInLeft = varSlide({ distance: 10 }).inLeft;
 
 type Props = {
   closeSideBarDrawer?: () => void;
@@ -24,7 +29,7 @@ export default function Nav(props: Props) {
   const matches = useMatches();
   const { pathname } = useLocation();
 
-  const { colorTextBase, colorBgElevated, colorBorder } = useThemeToken();
+  const { colorPrimary, colorTextBase, colorBgElevated, colorBorder } = useThemeToken();
 
   const settings = useSettings();
   const { themeLayout } = settings;
@@ -36,6 +41,8 @@ export default function Nav(props: Props) {
 
   const routeToMenuFn = useRouteToMenuFn();
   const permissionRoutes = usePermissionRoutes();
+  // 获取拍平后的路由菜单
+  const flattenedRoutes = useFlattenedRoutes();
 
   /**
    * state
@@ -77,14 +84,19 @@ export default function Nav(props: Props) {
    * events
    */
   const onOpenChange: MenuProps['onOpenChange'] = (keys) => {
-    const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
-    if (latestOpenKey) {
-      setOpenKeys(keys);
-    } else {
-      setOpenKeys([]);
-    }
+    setOpenKeys(keys);
   };
   const onClick: MenuProps['onClick'] = ({ key }) => {
+    // 从扁平化的路由信息里面匹配当前点击的那个
+    const nextLink = flattenedRoutes?.find((el) => el.key === key);
+
+    // 处理菜单项中，外链的特殊情况
+    // 点击外链时，不跳转路由，不在当前项目添加tab，不选中当前路由，新开一个 tab 打开外链
+    if (nextLink?.hideTab && nextLink?.frameSrc) {
+      window.open(nextLink?.frameSrc, '_blank');
+      return;
+    }
+
     navigate(key);
     props?.closeSideBarDrawer?.();
   };
@@ -114,11 +126,16 @@ export default function Nav(props: Props) {
       }}
     >
       <div className="relative flex h-20 items-center justify-center py-4">
-        {themeLayout === ThemeLayout.Mini ? (
-          <Logo className="text-lg" />
-        ) : (
-          <Logo className="text-4xl" />
-        )}
+        <MotionContainer className="flex items-center">
+          <Logo />
+          {themeLayout !== ThemeLayout.Mini && (
+            <m.div variants={slideInLeft}>
+              <span className="ml-2 text-xl font-bold" style={{ color: colorPrimary }}>
+                Slash Admin
+              </span>
+            </m.div>
+          )}
+        </MotionContainer>
         <button
           onClick={toggleCollapsed}
           className="absolute right-0 top-7 z-50 hidden h-6 w-6 translate-x-1/2 cursor-pointer select-none rounded-full text-center !text-gray md:block"
@@ -146,6 +163,7 @@ export default function Nav(props: Props) {
           onClick={onClick}
           style={menuStyle}
           inlineCollapsed={collapsed}
+          inlineIndent={50}
         />
       </Scrollbar>
     </div>

@@ -1,23 +1,29 @@
 <div align="center"> 
 <br> 
 <br>
-<h1>Slash Admin 
-</h1>
+<img src="./src/assets/images/logo.png" height="140" />
+<h1> Slash Admin </h1>
+<span style="font-size: 14px">
+  Slash Admin 是一款现代化的后台管理模板，基于 React 18、Vite、Ant Design 和 TypeScript 构建。它旨在帮助开发人员快速搭建功能强大的后台管理系统。
+</span>
+
 </div>
 
 **中文** | [English](./README.md)
 
-## 简介
+## 赞助 
+<div style="display: flex; gap: 50px"> 
+  <img style="width:300px" src="https://d3george.github.io/github-static/pay/weixin.jpg" >
+  <img style="width:300px" src="https://d3george.github.io/github-static/pay/buymeacoffee.png" />
+</div>
 
-Slash Admin 是一个现代化的后台管理模板，基于 React 18、Vite、Ant Design 和 TypeScript 构建。它旨在帮助开发人员快速搭建功能强大的后台管理系统。
 
 ## 预览
 + https://admin.slashspaces.com/
 
-![login.png](https://d3george.github.io/github-static/slash-admin/login.jpeg)
-![login_dark.png](https://d3george.github.io/github-static/slash-admin/login_dark.jpeg)
-![analysis.png](https://d3george.github.io/github-static/slash-admin/analysis.png)
-![workbench.png](https://d3george.github.io/github-static/slash-admin/workbench.png)
+|![login.png](https://d3george.github.io/github-static/slash-admin/login.jpeg)|![login_dark.png](https://d3george.github.io/github-static/slash-admin/login_dark.jpeg)
+| ----------------------------------------------------------------- | ------------------------------------------------------------------- |
+|![analysis.png](https://d3george.github.io/github-static/slash-admin/analysis.png)|![workbench.png](https://d3george.github.io/github-static/slash-admin/workbench.png)
 ## 特性
 
 - 使用 React 18 hooks 进行构建。
@@ -33,6 +39,9 @@ Slash Admin 是一个现代化的后台管理模板，基于 React 18、Vite、A
 - 基于 MSW 和 Faker.js 的Mock方案
 - 使用 Zustand 进行状态管理
 - 使用 React-Query 进行数据获取
+
+## 文档
+[文档地址](https://docs-admin.slashspaces.com/)
 
 ## 快速开始
 
@@ -113,3 +122,39 @@ Docker Compose 根据`docker-compose.yaml`定义的配置构建镜像并在后�
 - `ci` 修改CI配置、脚本
 - `types` 类型定义文件修改
 - `wip` 开发中
+
+## 参与献者 ✨
+
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-11-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
+
+感谢这些出色的贡献者 ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://blog.slashspaces.com/"><img src="https://avatars.githubusercontent.com/u/143698843?v=4?s=72" width="72px;" alt="kevin"/><br /><sub><b>kevin</b></sub></a><br /><a href="#design-d3george" title="Design">🎨</a> <a href="#tool-d3george" title="Tools">🔧</a> <a href="https://github.com/d3george/slash-admin/commits?author=d3george" title="Code">💻</a> <a href="https://github.com/d3george/slash-admin/issues?q=author%3Ad3george" title="Bug reports">🐛</a> <a href="https://github.com/d3george/slash-admin/commits?author=d3george" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/ydiego"><img src="https://avatars.githubusercontent.com/u/13268002?v=4?s=72" width="72px;" alt="YDiego"/><br /><sub><b>YDiego</b></sub></a><br /><a href="https://github.com/d3george/slash-admin/commits?author=ydiego" title="Code">💻</a> <a href="https://github.com/d3george/slash-admin/issues?q=author%3Aydiego" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://fuxiaochen.com/"><img src="https://avatars.githubusercontent.com/u/65325004?v=4?s=72" width="72px;" alt="付小晨"/><br /><sub><b>付小晨</b></sub></a><br /><a href="https://github.com/d3george/slash-admin/commits?author=aifuxi" title="Code">💻</a> <a href="https://github.com/d3george/slash-admin/issues?q=author%3Aaifuxi" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/xinmans"><img src="https://avatars.githubusercontent.com/u/2713008?v=4?s=72" width="72px;" alt="xinmans"/><br /><sub><b>xinmans</b></sub></a><br /><a href="https://github.com/d3george/slash-admin/commits?author=xinmans" title="Code">💻</a> <a href="#tool-xinmans" title="Tools">🔧</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/stitchLau"><img src="https://avatars.githubusercontent.com/u/52861440?v=4?s=72" width="72px;" alt="stitch"/><br /><sub><b>stitch</b></sub></a><br /><a href="https://github.com/d3george/slash-admin/commits?author=stitchLau" title="Code">💻</a> <a href="https://github.com/d3george/slash-admin/issues?q=author%3AstitchLau" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/ntscshen"><img src="https://avatars.githubusercontent.com/u/21041458?v=4?s=72" width="72px;" alt="ntscshen"/><br /><sub><b>ntscshen</b></sub></a><br /><a href="#tool-ntscshen" title="Tools">🔧</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/298977887"><img src="https://avatars.githubusercontent.com/u/127030474?v=4?s=72" width="72px;" alt="298977887"/><br /><sub><b>298977887</b></sub></a><br /><a href="https://github.com/d3george/slash-admin/commits?author=298977887" title="Code">💻</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://www.yuque.com/eternallycyf"><img src="https://avatars.githubusercontent.com/u/63464198?v=4?s=72" width="72px;" alt="eternallycyf"/><br /><sub><b>eternallycyf</b></sub></a><br /><a href="#tool-eternallycyf" title="Tools">🔧</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/hugepizza"><img src="https://avatars.githubusercontent.com/u/23519941?v=4?s=72" width="72px;" alt="lei"/><br /><sub><b>lei</b></sub></a><br /><a href="https://github.com/d3george/slash-admin/issues?q=author%3Ahugepizza" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/fliu2476"><img src="https://avatars.githubusercontent.com/u/19582252?v=4?s=72" width="72px;" alt="fliu2476"/><br /><sub><b>fliu2476</b></sub></a><br /><a href="https://github.com/d3george/slash-admin/issues?q=author%3Afliu2476" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/chenyuxi2002"><img src="https://avatars.githubusercontent.com/u/59554586?v=4?s=72" width="72px;" alt="tzcat8"/><br /><sub><b>tzcat8</b></sub></a><br /><a href="https://github.com/d3george/slash-admin/commits?author=chenyuxi2002" title="Documentation">📖</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->

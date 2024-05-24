@@ -159,6 +159,16 @@ const MANAGEMENT_PERMISSION = {
           route: 'user',
           component: '/management/system/user/index.tsx',
         },
+        {
+          id: '0157880245365434',
+          parentId: '0249937641030250',
+          label: 'sys.menu.system.user_detail',
+          name: 'User Detail',
+          type: PermissionType.MENU,
+          route: 'user/:id',
+          component: '/management/system/user/detail.tsx',
+          hide: true,
+        },
       ],
     },
   ],
@@ -434,6 +444,7 @@ const OTHERS_PERMISSION = [
         name: 'External Link',
         type: PermissionType.MENU,
         route: 'external_link',
+        hideTab: true,
         component: '/sys/others/iframe/external-link.tsx',
         frameSrc: 'https://ant.design/',
       },
@@ -498,8 +509,8 @@ export const ROLE_LIST = [ADMIN_ROLE, TEST_ROLE];
  * User data mock
  */
 export const DEFAULT_USER = {
-  id: faker.string.uuid(),
-  username: 'admin@gmail.com',
+  id: 'b34719e1-ce46-457e-9575-99505ecee828',
+  username: 'admin',
   email: faker.internet.email(),
   avatar: faker.image.avatarLegacy(),
   createdAt: faker.date.anytime(),
@@ -509,8 +520,8 @@ export const DEFAULT_USER = {
   permissions: ADMIN_ROLE.permission,
 };
 export const TEST_USER = {
-  id: faker.string.uuid(),
-  username: 'test@gmail.com',
+  id: 'efaa20ea-4dc5-47ee-a200-8a899be29494',
+  username: 'test',
   password: 'demo1234',
   email: faker.internet.email(),
   avatar: faker.image.avatarLegacy(),
