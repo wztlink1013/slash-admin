@@ -29,19 +29,7 @@ export const ORG_LIST = [
       { id: '2-2', name: 'Marketing Department', status: 'enable', desc: '', order: 2 },
       { id: '2-3', name: 'Finance Department', status: 'enable', desc: '', order: 3 },
     ],
-  },
-  {
-    id: '3',
-    name: 'Northwest Branch',
-    status: 'enable',
-    desc: faker.lorem.words(),
-    order: 3,
-    children: [
-      { id: '3-1', name: 'R&D Department', status: 'disable', desc: '', order: 1 },
-      { id: '3-2', name: 'Marketing Department', status: 'enable', desc: '', order: 2 },
-      { id: '3-3', name: 'Finance Department', status: 'enable', desc: '', order: 3 },
-    ],
-  },
+  }
 ];
 
 /**
@@ -275,6 +263,15 @@ const FUNCTIONS_PERMISSION = {
       type: PermissionType.MENU,
       route: 'clipboard',
       component: '/functions/clipboard/index.tsx',
+    },
+    {
+      id: '3667930780705751',
+      parentId: '8132044808088488',
+      label: 'sys.menu.token_expired',
+      name: 'Token Expired',
+      type: PermissionType.MENU,
+      route: 'token-expired',
+      component: '/functions/token-expired/index.tsx',
     },
   ],
 };
@@ -512,7 +509,7 @@ export const DEFAULT_USER = {
   id: 'b34719e1-ce46-457e-9575-99505ecee828',
   username: 'admin',
   email: faker.internet.email(),
-  avatar: faker.image.avatarLegacy(),
+  avatar: faker.image.avatarGitHub(),
   createdAt: faker.date.anytime(),
   updatedAt: faker.date.recent(),
   password: 'demo1234',
@@ -524,7 +521,7 @@ export const TEST_USER = {
   username: 'test',
   password: 'demo1234',
   email: faker.internet.email(),
-  avatar: faker.image.avatarLegacy(),
+  avatar: faker.image.avatarGitHub(),
   createdAt: faker.date.anytime(),
   updatedAt: faker.date.recent(),
   role: TEST_ROLE,

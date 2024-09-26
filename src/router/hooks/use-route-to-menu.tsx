@@ -1,4 +1,3 @@
-import { ItemType } from 'antd/es/menu/hooks/useItems';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -7,6 +6,7 @@ import { useSettings } from '@/store/settingStore';
 
 import { ThemeLayout } from '#/enum';
 import { AppRouteObject } from '#/router';
+import type { ItemType } from 'antd/es/menu/interface';
 
 /**
  *   routes -> menus
@@ -27,7 +27,7 @@ export function useRouteToMenuFn() {
             menuItem.disabled = disabled;
             menuItem.label = (
               <div
-                className={`inline-flex w-full items-center ${
+                className={`inline-flex items-center ${
                   themeLayout === ThemeLayout.Horizontal ? 'justify-start' : 'justify-between'
                 } `}
               >

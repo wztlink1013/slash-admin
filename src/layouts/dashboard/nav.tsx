@@ -1,9 +1,8 @@
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
 import { Menu, MenuProps } from 'antd';
-import { ItemType } from 'antd/es/menu/hooks/useItems';
 import Color from 'color';
 import { m } from 'framer-motion';
-import { CSSProperties, useEffect, useState } from 'react';
+import { CSSProperties, useEffect, useMemo, useState } from 'react';
 import { useLocation, useMatches, useNavigate } from 'react-router-dom';
 
 import MotionContainer from '@/components/animate/motion-container';
@@ -41,6 +40,11 @@ export default function Nav(props: Props) {
 
   const routeToMenuFn = useRouteToMenuFn();
   const permissionRoutes = usePermissionRoutes();
+  const menuList = useMemo(() => {
+    const menuRoutes = menuFilter(permissionRoutes);
+    return routeToMenuFn(menuRoutes);
+  }, [routeToMenuFn, permissionRoutes]);
+
   // 获取拍平后的路由菜单
   const flattenedRoutes = useFlattenedRoutes();
 
@@ -49,8 +53,6 @@ export default function Nav(props: Props) {
    */
   const [collapsed, setCollapsed] = useState(false);
   const [openKeys, setOpenKeys] = useState<string[]>([]);
-  const [selectedKeys, setSelectedKeys] = useState<string[]>(['']);
-  const [menuList, setMenuList] = useState<ItemType[]>([]);
   const [menuMode, setMenuMode] = useState<MenuProps['mode']>('inline');
 
   useEffect(() => {
@@ -60,14 +62,7 @@ export default function Nav(props: Props) {
         .map((match) => match.pathname);
       setOpenKeys(openKeys);
     }
-    setSelectedKeys([pathname]);
-  }, [pathname, matches, collapsed, themeLayout]);
-
-  useEffect(() => {
-    const menuRoutes = menuFilter(permissionRoutes);
-    const menus = routeToMenuFn(menuRoutes);
-    setMenuList(menus);
-  }, [permissionRoutes, routeToMenuFn]);
+  }, [matches, themeLayout]);
 
   useEffect(() => {
     if (themeLayout === ThemeLayout.Vertical) {
@@ -156,14 +151,13 @@ export default function Nav(props: Props) {
           items={menuList}
           className="h-full !border-none"
           defaultOpenKeys={openKeys}
-          defaultSelectedKeys={selectedKeys}
-          selectedKeys={selectedKeys}
+          defaultSelectedKeys={[pathname]}
+          selectedKeys={[pathname]}
           openKeys={openKeys}
           onOpenChange={onOpenChange}
           onClick={onClick}
           style={menuStyle}
           inlineCollapsed={collapsed}
-          inlineIndent={50}
         />
       </Scrollbar>
     </div>

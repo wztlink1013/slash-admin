@@ -22,9 +22,6 @@ export default function NoticeButton() {
     backgroundPosition: 'right top, left bottom',
     backgroundSize: '50, 50%',
   };
-  const bodyStyle: CSSProperties = {
-    padding: 0,
-  };
 
   return (
     <div>
@@ -46,8 +43,10 @@ export default function NoticeButton() {
         open={drawerOpen}
         closable={false}
         width={420}
-        bodyStyle={bodyStyle}
-        maskStyle={{ backgroundColor: 'transparent' }}
+        styles={{
+          body: { padding: 0 },
+          mask: { backgroundColor: 'transparent' },
+        }}
         style={style}
         extra={
           <IconButton
@@ -80,7 +79,7 @@ function NoticeTab() {
   const tabChildren: ReactNode = (
     <div className="text-sm">
       <div className="flex">
-        <img className="h-10 w-10 rounded-full" src={faker.image.avatar()} alt="" />
+        <img className="h-10 w-10 rounded-full" src={faker.image.avatarGitHub()} alt="" />
         <div className="ml-2">
           <div>
             <span className="font-medium">{faker.person.fullName()}</span>
@@ -97,7 +96,7 @@ function NoticeTab() {
       </div>
 
       <div className="mt-8 flex">
-        <img className="h-10 w-10 rounded-full" src={faker.image.avatar()} alt="" />
+        <img className="h-10 w-10 rounded-full" src={faker.image.avatarGitHub()} alt="" />
         <div className="ml-2">
           <div>
             <span className="font-medium">{faker.person.fullName()}</span>
@@ -123,7 +122,7 @@ function NoticeTab() {
       </div>
 
       <div className="mt-8 flex">
-        <img className="h-10 w-10 rounded-full" src={faker.image.avatar()} alt="" />
+        <img className="h-10 w-10 rounded-full" src={faker.image.avatarGitHub()} alt="" />
         <div className="ml-2">
           <div>
             <span className="font-medium">{faker.person.fullName()}</span>
@@ -140,7 +139,7 @@ function NoticeTab() {
       </div>
 
       <div className="mt-8 flex">
-        <img className="h-10 w-10 rounded-full" src={faker.image.avatar()} alt="" />
+        <img className="h-10 w-10 rounded-full" src={faker.image.avatarGitHub()} alt="" />
         <div className="ml-2">
           <div>
             <span className="font-medium">{faker.person.fullName()}</span>
@@ -163,7 +162,7 @@ function NoticeTab() {
       </div>
 
       <div className="mt-8 flex">
-        <img className="h-10 w-10 rounded-full" src={faker.image.avatar()} alt="" />
+        <img className="h-10 w-10 rounded-full" src={faker.image.avatarGitHub()} alt="" />
         <div className="ml-2">
           <div>
             <span className="font-medium">{faker.person.fullName()}</span>

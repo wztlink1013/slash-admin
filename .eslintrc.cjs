@@ -4,7 +4,7 @@ module.exports = {
   /* 解析器 */
   parser: '@typescript-eslint/parser', // 指定ESLint解析器
   parserOptions: {
-    project: './tsconfig.json', // tsconfig.json的路径
+    project: './tsconfig.eslint.json',
     ecmaVersion: 'latest',
     sourceType: 'module',
     ecmaFeatures: {
@@ -53,6 +53,7 @@ module.exports = {
    * "error" 或 2 - 开启规则，使用错误级别的错误：error (当被触发的时候，程序会退出)
    */
   rules: {
+    semi: ['error', 'always'],
     'no-console': 'off',
     'no-unused-vars': 'off',
     'no-case-declarations': 'off',
@@ -78,6 +79,7 @@ module.exports = {
     'import/no-duplicates': 'warn',
     'import/no-extraneous-dependencies': 'off',
     'import/prefer-default-export': 'off',
+    'import/no-cycle': 'off',
     'import/order': [
       'warn',
       {
